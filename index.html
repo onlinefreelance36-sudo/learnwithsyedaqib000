@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn With Syed Aqib — Quran, Islamic Studies &amp; Arabic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep:#0B3B2E;
+    --deep-soft:#123F31;
+    --deep-line:#265A47;
+    --paper:#FAF7EE;
+    --paper-deep:#F1EAD6;
+    --ink:#161510;
+    --ink-soft:#5B5748;
+    --gold:#C79A2E;
+    --gold-soft:#E4C05F;
+    --teal:#0E6B5C;
+    --cream-text:#F5F1E2;
+    --line-light:#E2D8BB;
+    --card:#FFFFFF;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0E110F;
+      --paper-deep:#151A16;
+      --ink:#ECE7D6;
+      --ink-soft:#A39D86;
+      --line-light:#28301F;
+      --card:#161C17;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0E110F;
+    --paper-deep:#151A16;
+    --ink:#ECE7D6;
+    --ink-soft:#A39D86;
+    --line-light:#28301F;
+    --card:#161C17;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .arabic{font-family:'Amiri', serif;}
+  a{color:inherit;}
+  img,svg{max-width:100%;display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 40px;}
+  @media (max-width:680px){ .wrap{padding:0 22px;} }
+
+  /* ---------- TOP TICKER ---------- */
+  .ticker-bar{
+    background:var(--gold);
+    color:#221A05;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.02em;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  .ticker-track{
+    display:inline-flex;
+    gap:48px;
+    padding:8px 0;
+    animation:scrollTicker 26s linear infinite;
+    will-change:transform;
+  }
+  @keyframes scrollTicker{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media (prefers-reduced-motion: reduce){ .ticker-track{animation:none;} }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,59,46,.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--deep-line);
+  }
+  header.nav .wrap{
+    display:flex; align-items:center; justify-content:space-between; height:74px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:12px;
+    font-family:'Fraunces', serif;
+    font-size:18.5px; font-weight:600;
+    color:var(--cream-text);
+  }
+  .brand-mark{width:36px; height:36px;}
+  nav.links{display:flex; gap:30px; font-size:14px;}
+  nav.links a{text-decoration:none; color:#C9D6CC; transition:color .15s;}
+  nav.links a:hover{color:#fff;}
+  .nav-cta{
+    background:var(--gold);
+    color:#221A05;
+    padding:10px 20px;
+    border-radius:4px;
+    font-weight:700;
+    font-size:13.5px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  @media (max-width:860px){ nav.links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--deep);
+    color:var(--cream-text);
+    padding:80px 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-pattern{
+    position:absolute; inset:0;
+    opacity:.14;
+    pointer-events:none;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:40px;
+    align-items:center;
+    padding-bottom:66px;
+    position:relative;
+  }
+  @media (max-width:920px){ .hero .wrap{grid-template-columns:1fr; padding-bottom:40px;} }
+
+  .bismillah{
+    font-family:'Amiri', serif;
+    font-size:22px;
+    color:var(--gold-soft);
+    margin-bottom:22px;
+    letter-spacing:.02em;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13px; font-weight:600;
+    color:#CBD8CF;
+    background:rgba(255,255,255,.06);
+    border:1px solid var(--deep-line);
+    padding:6px 14px 6px 10px;
+    border-radius:100px;
+    margin-bottom:22px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);}
+  .hero h1{
+    font-size:clamp(36px, 5.2vw, 58px);
+    line-height:1.08;
+    letter-spacing:-0.02em;
+    color:#fff;
+  }
+  .hero h1 .accent{color:var(--gold-soft); font-style:italic;}
+  .hero p.lede{
+    margin-top:24px;
+    font-size:17.5px;
+    color:#C9D6CC;
+    max-width:50ch;
+  }
+  .hero-ctas{margin-top:34px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--gold);
+    color:#221A05;
+    padding:15px 26px;
+    border-radius:4px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:15px;
+    display:inline-block;
+    box-shadow:0 10px 30px -8px rgba(199,154,46,.5);
+  }
+  .btn-ghost{
+    padding:15px 24px;
+    border-radius:4px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    display:inline-block;
+    color:#EDEFE4;
+    border:1px solid var(--deep-line);
+  }
+  .hero-stats{
+    margin-top:50px;
+    display:flex;
+    border-top:1px solid var(--deep-line);
+    padding-top:26px;
+  }
+  .hstat{padding-right:36px; margin-right:36px; border-right:1px solid var(--deep-line);}
+  .hstat:last-child{border-right:none; margin-right:0; padding-right:0;}
+  .hstat b{display:block; font-family:'Fraunces', serif; font-size:27px; color:#fff; font-weight:600;}
+  .hstat span{font-size:12.5px; color:#9CAE9F;}
+
+  /* star medallion graphic */
+  .medallion-wrap{position:relative; aspect-ratio:1/1; max-width:420px; margin:0 auto;}
+  .medallion-wrap svg{width:100%; height:100%;}
+  .medallion-spin{animation:slowspin 60s linear infinite; transform-origin:230px 230px;}
+  @keyframes slowspin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+  @media (prefers-reduced-motion: reduce){ .medallion-spin{animation:none;} }
+
+  /* ---------- SECTION SHELL ---------- */
+  .section{padding:96px 0;}
+  .section.tight{padding:72px 0;}
+  .section-head{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    align-items:end;
+    gap:24px;
+    margin-bottom:48px;
+  }
+  .section-head .eyebrow-sm{
+    font-size:12.5px; font-weight:700; letter-spacing:.04em;
+    color:var(--teal);
+    margin-bottom:10px;
+    display:block;
+  }
+  .section-head h2{font-size:clamp(27px,3.3vw,38px); max-width:17ch;}
+  .section-head p{color:var(--ink-soft); font-size:15.5px; max-width:38ch; justify-self:end; text-align:right;}
+  @media (max-width:720px){
+    .section-head{grid-template-columns:1fr;}
+    .section-head p{text-align:left; justify-self:start;}
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--paper);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:64px;
+    align-items:start;
+  }
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr; gap:36px;} }
+  .about-visual{
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid var(--line-light);
+    background:var(--deep);
+    aspect-ratio:4/5;
+    display:grid;
+    place-items:center;
+    padding:36px;
+  }
+  .about-copy p{color:var(--ink-soft); font-size:16px; margin:0 0 18px; max-width:54ch;}
+  .about-copy p.lead{
+    font-family:'Fraunces', serif;
+    font-size:21px;
+    color:var(--ink);
+    font-weight:500;
+    line-height:1.45;
+  }
+  .creds{
+    margin-top:28px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    border-top:1px solid var(--line-light);
+  }
+  .creds div{padding:16px 0; border-bottom:1px solid var(--line-light);}
+  .creds div:nth-child(odd){padding-right:20px;}
+  .creds b{display:block; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); margin-bottom:4px; font-weight:600;}
+  .creds span{font-size:14.5px; color:var(--ink);}
+
+  /* ---------- SUBJECTS ---------- */
+  .subjects{background:var(--paper-deep);}
+  .subj-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    grid-template-rows:auto auto;
+    gap:18px;
+  }
+  @media (max-width:900px){ .subj-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .subj-grid{grid-template-columns:1fr;} }
+  .subj-card{
+    background:var(--card);
+    border:1px solid var(--line-light);
+    border-radius:16px;
+    padding:30px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .subj-card:hover{transform:translateY(-3px); box-shadow:0 16px 32px -18px rgba(11,59,46,.25);}
+  .subj-card.feature{
+    grid-row:span 2;
+    background:var(--deep);
+    color:var(--cream-text);
+    display:flex; flex-direction:column; justify-content:space-between;
+    border-color:var(--deep);
+  }
+  .subj-card.feature h3{color:#fff; font-size:23px;}
+  .subj-card.feature p{color:#C9D6CC;}
+  .subj-icon{
+    width:42px; height:42px;
+    border-radius:10px;
+    background:var(--paper-deep);
+    display:grid; place-items:center;
+    margin-bottom:18px;
+    color:var(--teal);
+  }
+  .subj-card.feature .subj-icon{background:rgba(255,255,255,.08); color:var(--gold-soft);}
+  .subj-card h3{font-size:18px; margin-bottom:8px;}
+  .subj-card p{font-size:14px; color:var(--ink-soft); margin:0;}
+  .feature-tag{
+    display:inline-block; margin-top:24px;
+    font-size:12.5px; font-weight:600; color:var(--gold-soft);
+    border:1px solid rgba(255,255,255,.2);
+    padding:7px 14px; border-radius:100px; width:fit-content;
+  }
+
+  /* ---------- AVAILABILITY ---------- */
+  .avail{background:var(--paper);}
+  .tz-strip{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line-light); border:1px solid var(--line-light);
+    border-radius:16px; overflow:hidden;
+  }
+  @media (max-width:820px){ .tz-strip{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .tz-strip{grid-template-columns:1fr;} }
+  .tz-card{background:var(--card); padding:28px 24px;}
+  .tz-card .flagem{font-size:20px; margin-bottom:14px; display:block;}
+  .tz-card .city{font-weight:700; font-size:14.5px; color:var(--ink);}
+  .tz-card .time{font-family:'Fraunces', serif; font-size:25px; margin:10px 0 6px; color:var(--teal);}
+  .tz-card .win{font-size:12.5px; color:var(--ink-soft);}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi{background:var(--deep); color:var(--cream-text);}
+  .testi .section-head h2{color:#fff;}
+  .testi .section-head p{color:#A9BBAE;}
+  .testi-grid{display:grid; grid-template-columns:1.15fr 1fr 1fr; gap:20px;}
+  @media (max-width:900px){ .testi-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .testi-grid{grid-template-columns:1fr;} }
+  .t-card{
+    background:var(--deep-soft);
+    border:1px solid var(--deep-line);
+    border-radius:16px; padding:30px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .t-card .mark{font-family:'Fraunces', serif; font-size:44px; color:var(--gold-soft); line-height:1; margin-bottom:6px;}
+  .t-card p{font-size:15.5px; color:#DCE4DA; margin:0 0 22px;}
+  .t-who{display:flex; align-items:center; gap:10px; font-size:13.5px;}
+  .t-flag{width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,.08); display:grid; place-items:center; font-size:16px;}
+  .t-who b{color:#fff; display:block; font-weight:600;}
+  .t-who span{color:#9CAE9F; font-size:12.5px;}
+
+  /* ---------- PRICING ---------- */
+  .pricing{background:var(--paper);}
+  .price-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media (max-width:860px){ .price-grid{grid-template-columns:1fr;} }
+  .price-card{
+    background:var(--card); border:1px solid var(--line-light);
+    border-radius:18px; padding:34px 30px; display:flex; flex-direction:column;
+  }
+  .price-card.featured{
+    background:var(--deep); color:var(--cream-text); border-color:var(--deep);
+    position:relative; transform:translateY(-10px);
+    box-shadow:0 24px 48px -20px rgba(11,59,46,.4);
+  }
+  .price-card.featured h3, .price-card.featured .price-amt{color:#fff;}
+  .price-card.featured .price-note{color:#A9BBAE;}
+  .price-card.featured li{color:#CBD8CF; border-color:var(--deep-line);}
+  .price-card.featured li::before{color:var(--gold-soft);}
+  .badge{
+    position:absolute; top:-13px; left:30px;
+    background:var(--gold); color:#221A05;
+    font-size:11.5px; font-weight:700; padding:5px 12px; border-radius:100px;
+  }
+  .price-card h3{font-size:16.5px; font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.03em; font-family:'Inter',sans-serif;}
+  .price-amt{font-family:'Fraunces', serif; font-size:38px; color:var(--ink); margin:16px 0 2px; font-weight:600;}
+  .price-amt sup{font-size:14px; font-weight:400; color:var(--ink-soft); font-family:'Inter',sans-serif;}
+  .price-note{font-size:13px; color:var(--ink-soft); margin-bottom:22px;}
+  .price-card ul{list-style:none; padding:0; margin:0 0 26px; flex:1;}
+  .price-card li{font-size:14px; padding:10px 0; border-top:1px solid var(--line-light); color:var(--ink-soft);}
+  .price-card li::before{content:"✓ "; color:var(--teal); font-weight:700;}
+  .price-cta{
+    text-align:center; padding:13px; border-radius:4px;
+    border:1px solid var(--ink); text-decoration:none; font-weight:700;
+    font-size:14px; color:var(--ink);
+  }
+  .price-card.featured .price-cta{background:var(--gold); border-color:var(--gold); color:#221A05;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--paper-deep);}
+  .contact-wrap{display:grid; grid-template-columns:1fr .85fr; gap:56px;}
+  @media (max-width:900px){ .contact-wrap{grid-template-columns:1fr;} }
+  .form-field{margin-bottom:18px;}
+  .form-field label{display:block; font-size:12.5px; font-weight:600; color:var(--ink-soft); margin-bottom:7px; text-transform:uppercase; letter-spacing:.03em;}
+  .form-field input, .form-field select, .form-field textarea{
+    width:100%; padding:13px 14px; border:1px solid var(--line-light);
+    border-radius:8px; background:var(--card); color:var(--ink);
+    font-family:'Inter', sans-serif; font-size:14.5px;
+  }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus{
+    outline:2px solid var(--teal); outline-offset:1px;
+  }
+  .form-field textarea{resize:vertical; min-height:100px;}
+  .submit-btn{
+    background:var(--teal); color:#fff; border:none; padding:15px 28px;
+    border-radius:4px; font-weight:700; font-size:15px; cursor:pointer;
+    box-shadow:0 12px 28px -10px rgba(14,107,92,.5);
+  }
+  .contact-info-card{
+    background:var(--deep); color:var(--cream-text);
+    border-radius:18px; padding:36px; height:fit-content;
+  }
+  .contact-info-card h3{color:#fff; font-size:20px;}
+  .contact-info-card p{color:#A9BBAE; font-size:14.5px; margin-top:12px;}
+  .contact-line{display:flex; justify-content:space-between; padding:14px 0; border-top:1px solid var(--deep-line); font-size:13.5px;}
+  .contact-line b{color:var(--gold-soft); font-weight:600;}
+
+  footer{
+    background:var(--deep); color:#9CAE9F; padding:40px 0; font-size:13px;
+    border-top:1px solid var(--deep-line);
+  }
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;}
+  footer a{color:#CBD8CF; text-decoration:none;}
+
+  .reveal{animation:riseIn .8s ease both;}
+  .reveal.d2{animation-delay:.16s;}
+  @keyframes riseIn{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+  @media (prefers-reduced-motion: reduce){ .reveal{animation:none;} }
+</style>
+</head>
+<body>
+
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <span>🇺🇸 New York</span><span>🇬🇧 London</span><span>🇦🇪 Dubai</span><span>🇲🇾 Kuala Lumpur</span><span>🇨🇦 Toronto</span><span>🇵🇰 Karachi</span><span>Teaching Quran, Arabic &amp; Islamic Studies in 30+ countries</span>
+    <span>🇺🇸 New York</span><span>🇬🇧 London</span><span>🇦🇪 Dubai</span><span>🇲🇾 Kuala Lumpur</span><span>🇨🇦 Toronto</span><span>🇵🇰 Karachi</span><span>Teaching Quran, Arabic &amp; Islamic Studies in 30+ countries</span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40"><polygon points="20,3 24,14 36,14 26,21 30,33 20,26 10,33 14,21 4,14 16,14" fill="none" stroke="#E4C05F" stroke-width="1.6"/></svg>
+      Learn With Syed Aqib
+    </div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#subjects">Subjects</a>
+      <a href="#availability">Availability</a>
+      <a href="#testimonials">Students</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a href="https://whatsform.com/RZvqql" class="nav-cta">Book a free trial</a>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="hero-pattern" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="starPattern" width="60" height="60" patternUnits="userSpaceOnUse">
+        <polygon points="30,6 35,22 52,22 38,32 43,48 30,38 17,48 22,32 8,22 25,22" fill="none" stroke="#E4C05F" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="400" height="400" fill="url(#starPattern)"/>
+  </svg>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="bismillah arabic">بسم الله الرحمن الرحيم</div>
+      <div class="eyebrow"><span class="dot"></span> Enrolling now for 1-to-1 online classes</div>
+      <h1>Learn Quran, Arabic &amp; Islamic Studies, <span class="accent">wherever you are.</span></h1>
+      <p class="lede">One-to-one online classes in Tajweed, Hifz, Islamic Studies and Quranic Arabic — taught with patience, correct pronunciation, and a plan built around your schedule and time zone.</p>
+      <div class="hero-ctas">
+        <a href="https://whatsform.com/RZvqql" class="btn-primary">Book a free trial class</a>
+        <a href="#subjects" class="btn-ghost">What I teach →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><b>100+</b><span>students taught since 2020</span></div>
+        <div class="hstat"><b>10+</b><span>countries represented</span></div>
+        <div class="hstat"><b>Ijazah</b><span>in Hafs 'an Asim recitation</span></div>
+      </div>
+    </div>
+    <div class="medallion-wrap reveal d2">
+      <svg viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="230" cy="230" r="205" fill="none" stroke="#265A47" stroke-width="1"/>
+        <g class="medallion-spin">
+          <polygon points="230,40 250,110 320,110 264,152 284,222 230,180 176,222 196,152 140,110 210,110"
+            fill="none" stroke="#E4C05F" stroke-width="1.4"/>
+          <polygon points="230,90 244,140 296,140 254,168 268,218 230,190 192,218 206,168 164,140 216,140"
+            fill="none" stroke="#C79A2E" stroke-width="1" opacity=".6" transform="rotate(22 230 230)"/>
+        </g>
+        <circle cx="230" cy="230" r="60" fill="#123F31" stroke="#265A47"/>
+        <text x="230" y="224" text-anchor="middle" fill="#F5F1E2" font-family="Amiri, serif" font-size="20">اقرأ</text>
+        <text x="230" y="246" text-anchor="middle" fill="#9CAE9F" font-family="Inter, sans-serif" font-size="10">Read</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow-sm">About</span>
+        <h2>Taught with Ijazah, delivered online</h2>
+      </div>
+      <p>5+ years of one-to-one online teaching across four continents.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-visual">
+        <svg viewBox="0 0 200 240" width="70%">
+          <rect x="10" y="10" width="180" height="220" rx="4" fill="none" stroke="#E4C05F" stroke-width="1.5"/>
+          <line x1="30" y1="50" x2="170" y2="50" stroke="#E4C05F" stroke-width="1"/>
+          <line x1="30" y1="80" x2="170" y2="80" stroke="#E4C05F" stroke-width="1" opacity=".7"/>
+          <line x1="30" y1="110" x2="150" y2="110" stroke="#E4C05F" stroke-width="1" opacity=".5"/>
+          <polygon points="100,140 110,160 132,160 114,172 122,194 100,182 78,194 86,172 68,160 90,160" fill="none" stroke="#E4C05F" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="about-copy">
+        <p class="lead">"Every student I teach is on their own journey with the Quran — some are memorizing, some are just learning to read correctly for the first time as an adult. My job is to meet them exactly where they are."</p>
+        <p>I began teaching part-time while completing my own studies, helping a handful of family friends correct their Tajweed over video calls. Today I teach students preparing for Hifz, adults learning to read Arabic for the first time, and families wanting a structured weekly Islamic Studies curriculum for their children — all one-to-one, all online.</p>
+        <div class="creds">
+          <div><b>Based in</b><span>Karachi, Pakistan (GMT+5)</span></div>
+          <div><b>Languages</b><span>Arabic, Urdu, English</span></div>
+          <div><b>Qualification</b><span>Ijazah in Hafs 'an Asim · Islamic Studies</span></div>
+          <div><b>Age groups</b><span>Kids, teens, and adults</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section subjects" id="subjects">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow-sm">Subjects</span>
+        <h2>What I teach, class by class</h2>
+      </div>
+      <p>Every class is one-to-one and paced to the student, not a fixed curriculum clock.</p>
+    </div>
+    <div class="subj-grid">
+      <div class="subj-card feature">
+        <div>
+          <div class="subj-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 4v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6H6a2 2 0 00-2 2z" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M8 16h8" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <h3>Quran Recitation &amp; Tajweed</h3>
+          <p>Letter-by-letter Tajweed correction, Noorani Qaida for beginners, and Hifz (memorization) support with weekly revision tracking.</p>
+        </div>
+        <span class="feature-tag">Most booked subject</span>
+      </div>
+      <div class="subj-card">
+        <div class="subj-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4-8 4-8-4 8-4z" stroke="currentColor" stroke-width="1.6"/><path d="M4 11v6l8 4 8-4v-6" stroke="currentColor" stroke-width="1.6"/></svg></div>
+        <h3>Islamic Studies</h3>
+        <p>Aqeedah, Fiqh basics and Seerah, taught age-appropriately for kids, teens or adults.</p>
+      </div>
+      <div class="subj-card">
+        <div class="subj-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="1.6"/></svg></div>
+        <h3>Arabic Language</h3>
+        <p>Modern Standard Arabic and Quranic Arabic — reading, writing and grammar (Nahw &amp; Sarf).</p>
+      </div>
+      <div class="subj-card">
+        <div class="subj-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6"/></svg></div>
+        <h3>Kids' Foundations</h3>
+        <p>Noorani Qaida, basic duas and Islamic manners for young beginners.</p>
+      </div>
+      <div class="subj-card">
+        <div class="subj-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.6"/></svg></div>
+        <h3>Adult Beginners</h3>
+        <p>A patient, judgment-free track for adults learning to read Arabic for the first time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tight avail" id="availability">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow-sm">Availability</span>
+        <h2>Classes that fit your clock</h2>
+      </div>
+      <p>Typical windows below — exact slots confirmed when you book.</p>
+    </div>
+    <div class="tz-strip">
+      <div class="tz-card">
+        <span class="flagem">🇺🇸</span>
+        <div class="city">New York</div>
+        <div class="time">6–9 AM</div>
+        <div class="win">EST · before school/work</div>
+      </div>
+      <div class="tz-card">
+        <span class="flagem">🇬🇧</span>
+        <div class="city">London</div>
+        <div class="time">11 AM–2 PM</div>
+        <div class="win">GMT · midday</div>
+      </div>
+      <div class="tz-card">
+        <span class="flagem">🇦🇪</span>
+        <div class="city">Dubai</div>
+        <div class="time">3–7 PM</div>
+        <div class="win">GST · after school</div>
+      </div>
+      <div class="tz-card">
+        <span class="flagem">🇲🇾</span>
+        <div class="city">Kuala Lumpur</div>
+        <div class="time">7–9 PM</div>
+        <div class="win">MYT · evening</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section testi" id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow-sm">Students</span>
+        <h2>What families are saying</h2>
+      </div>
+      <p>Real students, across four continents, learning at their own pace.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="t-card">
+        <div>
+          <div class="mark">"</div>
+          <p>My son went from struggling with basic letters to reading full pages confidently in six months. Ustadh Aqib is endlessly patient with kids.</p>
+        </div>
+        <div class="t-who"><div class="t-flag">🇬🇧</div><div><b>Yusuf's mother</b><span>London, UK</span></div></div>
+      </div>
+      <div class="t-card">
+        <div>
+          <div class="mark">"</div>
+          <p>I started learning Arabic as an adult with zero background. A year later I can read Quran with proper Tajweed — something I never thought I'd achieve.</p>
+        </div>
+        <div class="t-who"><div class="t-flag">🇺🇸</div><div><b>Amina K.</b><span>Chicago, USA</span></div></div>
+      </div>
+      <div class="t-card">
+        <div>
+          <div class="mark">"</div>
+          <p>Booking around my work schedule in Dubai was never a problem, and my Hifz revision has never been this consistent.</p>
+        </div>
+        <div class="t-who"><div class="t-flag">🇦🇪</div><div><b>Hamza R.</b><span>Dubai, UAE</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow-sm">Pricing</span>
+        <h2>Simple pricing, billed in your currency</h2>
+      </div>
+      <p>Shown in USD; I also invoice in GBP, AED and PKR on request.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <h3>Single Class</h3>
+        <div class="price-amt">$10<sup>/ class</sup></div>
+        <div class="price-note">45-minute one-to-one class</div>
+        <ul>
+          <li>Any subject, booked as needed</li>
+          <li>Progress notes after each class</li>
+          <li>Flexible rescheduling</li>
+        </ul>
+        <a href="#contact" class="price-cta">Book a class</a>
+      </div>
+      <div class="price-card featured">
+        <span class="badge">Most booked</span>
+        <h3>Weekly Program</h3>
+        <div class="price-amt">$60<sup>/ month</sup></div>
+        <div class="price-note">4 classes + revision tracking</div>
+        <ul>
+          <li>Weekly 45-minute class</li>
+          <li>WhatsApp support between classes</li>
+          <li>Monthly progress report</li>
+        </ul>
+        <a href="#contact" class="price-cta">Start weekly program</a>
+      </div>
+      <div class="price-card">
+        <h3>Hifz Intensive</h3>
+        <div class="price-amt">$100<sup>/ month</sup></div>
+        <div class="price-note">3 classes per week</div>
+        <ul>
+          <li>Dedicated memorization plan</li>
+          <li>Daily revision checklist</li>
+          <li>Priority scheduling</li>
+        </ul>
+        <a href="#contact" class="price-cta">Enquire now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow-sm">Contact</span>
+        <h2>Tell me about your student</h2>
+      </div>
+      <p>I typically reply within one working day, wherever you're writing from.</p>
+    </div>
+    <div class="contact-wrap">
+      <form onsubmit="event.preventDefault(); alert('This is a portfolio demo — hook this form up to your email or booking tool.');">
+        <div class="form-field">
+          <label for="name">Full name</label>
+          <input id="name" type="text" placeholder="Your name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email address</label>
+          <input id="email" type="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-field">
+          <label for="country">Country / time zone</label>
+          <input id="country" type="text" placeholder="e.g. UK, GMT">
+        </div>
+        <div class="form-field">
+          <label for="subject">Subject</label>
+          <select id="subject">
+            <option>Quran Recitation &amp; Tajweed</option>
+            <option>Hifz (Memorization)</option>
+            <option>Islamic Studies</option>
+            <option>Arabic Language</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="msg">What are you hoping to achieve?</label>
+          <textarea id="msg" placeholder="Student's age, current level, goals..."></textarea>
+        </div>
+        <button class="submit-btn" type="submit">Send enquiry</button>
+      </form>
+      <div class="contact-info-card">
+        <h3>Prefer to write directly?</h3>
+        <p>I typically reply within one working day, wherever you're writing from.</p>
+        <div class="contact-line"><span>Email</span><b>learnwihsyedaqib@gmail.com</b></div>
+        <div class="contact-line"><span>WhatsApp</span><b>+92 3495736927</b></div>
+        <div class="contact-line"><span>Time zone</span><b>GMT+5 (Pakistan)</b></div>
+        <div class="contact-line"><span>Response time</span><b>&lt; 24 hours</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Learn With Syed Aqib. Portfolio demo site.</span>
+    <span><a href="#about">About</a> &nbsp;·&nbsp; <a href="#pricing">Pricing</a> &nbsp;·&nbsp; <a href="#contact">Contact</a></span>
+  </div>
+</footer>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/923495736927?text=Assalamualaikum%2C%20I'm%20interested%20in%20classes" 
+   target="_blank" 
+   class="whatsapp-float" 
+   aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff">
+    <path d="M16.01 3C9.38 3 4 8.38 4 15.01c0 2.5.73 4.83 2 6.78L4 29l7.4-1.94a11.9 11.9 0 004.61.92h.01c6.63 0 12.01-5.38 12.01-12.01C28.02 8.38 22.64 3 16.01 3zm0 21.8h-.01a9.8 9.8 0 01-4.99-1.37l-.36-.21-3.7.97.99-3.6-.24-.37a9.8 9.8 0 01-1.5-5.21C6.2 9.52 10.5 5.2 16.01 5.2c2.63 0 5.1 1.02 6.96 2.88a9.78 9.78 0 012.87 6.93c0 5.5-4.32 9.79-9.83 9.79zm5.4-7.35c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.91-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.09 3.2 5.07 4.48.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/>
+  </svg>
+</a>
+
+<style>
+  .whatsapp-float{
+    position:fixed;
+    bottom:26px;
+    right:26px;
+    width:58px;
+    height:58px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+    z-index:999;
+    animation:wa-pulse 2.4s ease-in-out infinite;
+    text-decoration:none;
+  }
+  .whatsapp-float:hover{ transform:scale(1.06); }
+  @keyframes wa-pulse{
+    0%,100%{ box-shadow:0 8px 20px rgba(0,0,0,.25), 0 0 0 0 rgba(37,211,102,.5); }
+    50%{ box-shadow:0 8px 20px rgba(0,0,0,.25), 0 0 0 10px rgba(37,211,102,0); }
+  }
+  @media (prefers-reduced-motion: reduce){ .whatsapp-float{ animation:none; } }
+</style>
+</body>
+</html>
